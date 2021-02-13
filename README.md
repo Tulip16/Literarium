@@ -1,1 +1,2 @@
-# Literarium
+# CodeKADeT
+Online Competing and Development Environment 
