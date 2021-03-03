@@ -5,11 +5,20 @@
     </mat-form-field><br>
     <mat-form-field>
     <mat-label>Password</mat-label>
-    <input matInput type="password"formControlName='password1'>
+    <input matInput type="password" formControlName='password1'>
     </mat-form-field><br>
     <mat-form-field>
     <mat-label>Please confirm password</mat-label>
     <input matInput type="password" formControlName='password2'>
     </mat-form-field><br>
+    
+    <h3>Select your college</h3>
+    <select style='width:300px; height:30px' ng-size='40' formControlName="college">
+        <option style='width:300px; height:50px' ng-size='40' *ngFor="let college of colleges" [ngValue]="college">
+          {{ college }}
+        </option>
+    </select><br><br>
+    
+  
     <button mat-raised-button color='primary' (click)="onSubmit()">Register</button>
 </ngContainer>

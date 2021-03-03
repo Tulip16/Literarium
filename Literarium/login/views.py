@@ -30,16 +30,16 @@ def signup(request):
         data = json.loads(request.body)
         # if data.get('password1')==data.get('password2'):
         try:
-            saveuser=User.objects.create_user(data.get('username'),password=data.get('password1'))
+            saveuser=User.objects.create_user(data.get('username'),password=data.get('password1'),college=data.get('college'))
             saveuser.save()
             # return render(request,'signup.html',{'form':UserCreationForm,'info':'User '+request.POST.get('username')+' registered succssfully!'})
             return JsonResponse({'Status':"Registration Successful!"})
         except IntegrityError:
             # return render(request,'signup.html',{'form':UserCreationForm,'info':'User '+request.POST.get('username')+' already exists! Try to login!'})
             return JsonResponse({'Status':'User Registered Already!'})
-        # else:
+        else:
         #     # return render(request,'signup.html',{'form':UserCreationForm,'info':'Passwords don\'t match! Try again!'})
-        #     return JsonResponse({'Status':'Passwords dont match'})
+            return JsonResponse({'Status':'Passwords dont match'})
     else:
         return render(request,'signup.html',{'form':UserCreationForm})
 
@@ -80,3 +80,9 @@ def login(request):
             print("GET request to login")
             return render(request, 'login.html', {'form':AuthenticationForm})
 # Create your views here.
+
+@api_view(['GET'])
+def logout_user(request):
+    print(request.user)
+    logout(request)
+    return JsonResponse({"status": "Logged out"})

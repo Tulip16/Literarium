@@ -9,10 +9,16 @@ import { LoginService } from '../login.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+
+  colleges = [
+    'IIT Bombay','IIT Delhi', 'IIT Kanpur'
+  ];
+
   signupForm = this.fb.group({
     username: ['', Validators.required],
     password1: ['', Validators.required],
     password2: ['', Validators.required],
+    college: ['', Validators.required],
   })
   constructor(private fb: FormBuilder, private login: LoginService, private router: Router) { }
   ngOnInit(): void {
@@ -39,7 +45,7 @@ export class SignupComponent implements OnInit {
 
     }
   }
-    
+
 
   
 

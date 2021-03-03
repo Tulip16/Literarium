@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  compis = [
+    'comp1','comp2', 'comp3'
+  ];
+
+  compControl = new FormControl();
+
+  constructor(private login: LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  logout() : void{
+    this.login.logout().subscribe( details => 
+      {
+          alert("User Logged out succesfully!");
+          window.location.href = './login'
+      });
   }
 
 }

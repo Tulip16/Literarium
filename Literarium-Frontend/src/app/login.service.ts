@@ -13,7 +13,7 @@ export class LoginService {
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   // };
-  logoutUrl = 'http://127.0.0.1:8000/fileupload/logout/';
+  logoutUrl = 'http://127.0.0.1:8000/logout/';
 
   constructor(private http: HttpClient) {}
   
