@@ -28,6 +28,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel'
 import {MatIconModule} from '@angular/material/icon';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileComponent } from './profile/profile.component';
+import { SuccessComponent } from './success/success.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { ProfileComponent } from './profile/profile.component';
     //HomepageComponent,
     SignupComponent,
     ProfileComponent,
+    SuccessComponent,
     //ListComponent,
     //TryComponent,
   ],

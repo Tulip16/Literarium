@@ -30,6 +30,8 @@ urlpatterns = [
     path('', include('login.urls')),
     #path('fileupload/edit_file_from_textbox/', file_upload_views.edit_from_textbox),
     path('signup/login/',  login_views.login),
+    path('pay/', login_views.make_payment),
+    path('success/', login_views.success),
     #path('fileupload/file_view/', file_upload_views.view_function, name='view_function'),
     #path('fileupload/dirstr', file_upload_views.make_map, name='map_data'),    path('fileupload/file_view/execute', file_upload_views.execute, name='execute'),
     #path('emptyfileupload/', file_upload_views.emptyFileUpload, name='empty_file_upload'),

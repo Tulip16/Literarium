@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SuccessComponent } from './success/success.component';
 //import { WorkspaceComponent } from './workspace/workspace.component';
 
 //import { TryComponent } from './try/try.component';
@@ -27,6 +28,9 @@ const routes: Routes = [
   },
   {
     path: 'profile',component: ProfileComponent
+  },
+  {
+    path: 'success',component: SuccessComponent
   },
   // {
   //   path: 'try',component: TryComponent

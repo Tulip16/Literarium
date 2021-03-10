@@ -1,9 +1,11 @@
 <h1>USER PROFILE HERE</h1>
  <h3>Select the competiton you would like to register for!</h3>
- <select style='width:300px; height:30px' ng-size='40' name="compis" [formControl]="compControl">
-  <option style='width:300px; height:30px' ng-size='40' *ngFor="let compi of compis" [ngValue]="compi">
+ <select style='width:300px; height:30px;' ng-size='40' name="compis" [formControl]="compControl">
+  <option style='width:300px; height:30px; font-size: 18px' ng-size='40' *ngFor="let compi of compis" [ngValue]="compi">
     {{ compi }}
   </option>
 </select> <br> <br> 
-<h2> pay here </h2>
-<button mat-raised-button color='primary' (click)="logout()">Logout</button>
+<button (click)="pay()" style="margin-left: 0.1%; height: 30px; font-size: 18px">Pay</button>
+<br>
+<br>
+<button mat-raised-button color='primary' style="margin-left: 0.1%" (click)="logout()">Logout</button>

@@ -15,6 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework_jwt.settings import api_settings
 from rest_framework.permissions import AllowAny
+import razorpay
 
 from .serializers import *
 
@@ -86,3 +87,30 @@ def logout_user(request):
     print(request.user)
     logout(request)
     return JsonResponse({"status": "Logged out"})
+
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny, ])
+def make_payment(request):
+    data = json.loads(request.body)
+    # if data.get('password1')==data.get('password2'): data.get('yes')
+    print("//////////////////////////")
+    print(data)
+    print(data.get('amount'))
+    print("//////////////////////////")
+    order_amount = data.get('amount')
+    order_currency = 'INR'
+    client =  razorpay.Client(auth=('rzp_test_5Lz5R6IT16a7hJ','OHoDhtpsdSs4k1ne4TDtMhYU'))
+    payment = client.order.create({'amount':order_amount, 'currency':order_currency, 'payment_capture':'1'})
+    print("//////////////////////////")
+    print(payment)
+    print("//////////////////////////")
+    return JsonResponse({"id":payment['id']})
+
+@api_view(['POST'])
+@permission_classes([AllowAny, ])
+def success(request):
+    
+    print("done")
+    return redirect("http://localhost:4200/success")

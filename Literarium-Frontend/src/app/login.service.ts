@@ -3,13 +3,21 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
+
+function _window() : any{
+  return window;
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginService {
 
   dataUrl= 'http://127.0.0.1:8000/login/';
   dataUrl2= 'http://127.0.0.1:8000/signup/';
+  payUrl= 'http://127.0.0.1:8000/pay/';
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   // };
@@ -33,5 +41,14 @@ export class LoginService {
 	  console.log("Inside service for logging out");
 	  return this.http.get<any>(this.logoutUrl);
   }
+
+  pay(amount: any): Observable<any> {
+    return this.http.post<any>(this.payUrl,{'amount':amount});
+  }
+
+  get nativeWindow(): any{
+    return _window();
+  }
+  
  
 }
